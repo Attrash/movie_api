@@ -3,16 +3,29 @@ const express = require("express"),
 
 const app = express();
 
+const movies = [
+  {
+    title: "V For Vendetta",
+    director: "James McTeigue",
+    year: "2006"
+  },
+  {
+    title: "Paradise Now",
+    director: "Hany Abu-Assad",
+    year: "2005",
+  }
+];
+
 app.use(morgan("common"));
 
 app.get("/movies", (req, res, next) => {
-  res.send("Here are my top 10 movies!");
+  res.json(movies);
 });
 app.get("/", (req, res) => {
   res.send("Welcome to My lists of movies!");
 });
 
-app.use("/public/documentation.html", express.static("public"));
+app.use(express.static("public"));
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something went wrong!");
