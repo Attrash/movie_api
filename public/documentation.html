@@ -1,17 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-<h1>Movie API</h1>
-   
-   <p>Project description
-   This will be a web app to help user retrive data about movies. this project is built as an
-   assignment for the careerfoundry Server-side programing achievement
-   </p>   
-    
-</body>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Movie API</h1>
+    <p>
+      Project description This will be a web app to help user retrive data about
+      movies. this project is built as an assignment for the careerfoundry
+      Server-side programing achievement
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Request</th>
+          <th>URL</th>
+          <th>Description</th>
+          <th>HTTP Method</th>
+          <th>Request Body Data Format</th>
+          <th>Response Body Data Format</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Return all movies -->
+        <tr>
+          <td>Return all movies</td>
+          <td>/movies</td>
+          <td>Returns a list of all movies</td>
+          <td>GET</td>
+          <td>none</td>
+          <td>JSON of movies array</td>
+        </tr>
+        <!-- Return a specific movie -->
+        <tr>
+          <td>Returns movies by title</td>
+          <td>/movies/:title</td>
+          <td>Returns a movie by its title</td>
+          <td>GET</td>
+          <td>none</td>
+          <td>JSON object of the specific movie associated with that title</td>
+        </tr>
+        <!-- Return genre information -->
+        <tr>
+          <td>Return information about a genre</td>
+          <td>/movies/genres/:genreName</td>
+          <td>Returns details about the specific genre</td>
+          <td>GET</td>
+          <td>none</td>
+          <td>JSON object of the specific genre name and details</td>
+        </tr>
+        <!-- Return director information -->
+        <tr>
+          <td>Return data about a director</td>
+          <td>/movies/directors/:director</td>
+          <td>Returns details about a specific director</td>
+          <td>GET</td>
+          <td>none</td>
+          <td>JSON object of the specific director name and details</td>
+        </tr>
+        <tr>
+          <td>Create a new user</td>
+          <td>/users</td>
+          <td>Allow the creation of a new user</td>
+          <td>POST</td>
+          <td>JSON object with new user information</td>
+          <td>
+            if the creation format was correct return a status code (201)with
+            success message. if not return a status code(400) with error
+            message.
+          </td>
+        </tr>
+        <tr>
+          <td>Update user information</td>
+          <td>/users/:id</td>
+          <td>Allow user to update information</td>
+          <td>PUT</td>
+          <td>JSON object with updated information</td>
+          <td>
+            A status code (201) that the information was updated correctly with
+            success message. if not status code(400) with error message.
+          </td>
+        </tr>
+        <tr>
+          <td>Add movie to favorites</td>
+          <td>/users/:id/favorites</td>
+          <td>Allow user to add a movie to their favorites list</td>
+          <td>POST</td>
+          <td>JSON object with movie title</td>
+          <td>
+            if the creation format was correct return a status code (201)with
+            success message. if not return a status code(400) with error
+            message.
+          </td>
+        </tr>
+        <tr>
+          <td>Delete a movie from favorites</td>
+          <td>/users/:id/favorites</td>
+          <td>Allow user to delete a movie from their favorites list</td>
+          <td>DELETE</td>
+          <td>none</td>
+          <td>
+            A status code (201) if the movie was deleted successfully with a
+            confirmation message.
+          </td>
+        </tr>
+        <tr>
+          <td>Delete user</td>
+          <td>/users/:id</td>
+          <td>Allow users to delete their profile</td>
+          <td>DELETE</td>
+          <td>none</td>
+          <td>
+            a status code (201) if the user was deleted with a confirmation
+            message
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
 </html>
